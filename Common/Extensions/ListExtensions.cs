@@ -1,4 +1,4 @@
-namespace GraphQLDemo.Extensions;
+namespace GraphQLDemo.Common.Extensions;
 
 public static class ListExtensions
 {

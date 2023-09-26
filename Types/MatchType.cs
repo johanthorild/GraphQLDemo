@@ -1,4 +1,4 @@
-namespace GraphQLDemo.Schema;
+namespace GraphQLDemo.Types;
 
 public class MatchType
 {
