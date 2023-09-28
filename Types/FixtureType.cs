@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace GraphQLDemo.Types;
@@ -9,6 +10,7 @@ public class FixtureType
     public FixtureType() { }
     
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; init; }
 
     [MaxLength(50)]

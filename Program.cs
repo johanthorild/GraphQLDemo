@@ -11,10 +11,8 @@ builder.Services.AddDbContext<ClubContext>(options =>
 });
 
 builder.Services.AddGraphQLServer()
-    .AddType<TeamQueryResolver>()
-    .AddType<PlayerQueryResolver>()
-    .AddType<TeamMutationResolver>()
-    .AddType<PlayerMutationResolver>()
+    .AddQueryType<Query>()
+    .AddMutationType<Mutation>()
     .RegisterDbContext<ClubContext>()
     .ModifyRequestOptions(
         opt =>

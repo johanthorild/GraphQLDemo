@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
 namespace GraphQLDemo.Types;
@@ -19,11 +20,11 @@ public class TeamType
     public TeamType(
         string name)
     {
-        Id = Guid.NewGuid();
         Name = name;
     }
 
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; init; }
 
     [MaxLength(50)]
