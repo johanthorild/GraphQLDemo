@@ -1,19 +1,12 @@
 using GraphQLDemo.Common.Faker;
+using GraphQLDemo.Data;
 using GraphQLDemo.Types;
 
 namespace GraphQLDemo.Queries;
 
-[ExtendObjectType("Query")]
+[QueryType()]
 public class PlayerQueryResolver
 {
-    public IEnumerable<PlayerType> GetPlayers()
-    {
-        var teams = TeamFaker.FakeTeams();
-        teams
-        .ToList()
-        .ForEach(t => t.Players = PlayerFaker.FakePlayers(11, t));
-        return teams
-            .SelectMany(t => t.Players!)
-            .ToArray();
-    }
+    public IQueryable<PlayerType> GetPlayers(ClubContext context)
+        => context.Players.OrderBy(p => p.ShirtNumber);
 }
